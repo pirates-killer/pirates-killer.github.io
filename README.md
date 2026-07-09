@@ -8,4 +8,3 @@ You can use the interactive web calculator directly in your browser without down
 
 [![Open Calculator](https://img.shields.io/badge/Launch-Interactive_Calculator-success?style=for-the-badge&logo=github)](https://pirates-killer.github.io/)
 
-*(Replace the link above with your actual live GitHub Pages URL)*
