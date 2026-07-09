@@ -14,6 +14,8 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .container {
             background: white;
@@ -22,7 +24,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border: 1px solid #d0d7de;
             width: 100%;
-            max-width: 400px;
+            max-width: 440px;
         }
         h2 {
             margin-top: 0;
@@ -35,7 +37,7 @@
         label {
             display: block;
             margin-bottom: 6px;
-            font-weight: 6px;
+            font-weight: 600;
             font-size: 14px;
         }
         input {
@@ -62,22 +64,45 @@
             font-weight: bold;
             cursor: pointer;
             transition: background 0.2s;
+            margin-bottom: 20px;
         }
         button:hover {
             background-color: #2c974b;
         }
+        .results-container {
+            display: flex;
+            gap: 12px;
+        }
         .result-box {
-            margin-top: 20px;
-            padding: 15px;
+            flex: 1;
+            padding: 12px;
             background-color: #f6f8fa;
             border-radius: 6px;
             text-align: center;
             border: 1px dashed #d0d7de;
         }
+        .result-box.highlight {
+            background-color: #f0f7ff;
+            border: 1px dashed #54aeff;
+        }
+        .result-title {
+            font-size: 12px;
+            color: #57606a;
+            min-height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.3;
+        }
         .result-val {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
             color: #24292f;
+            margin-top: 5px;
+        }
+        .result-val span {
+            font-size: 13px;
+            font-weight: normal;
         }
     </style>
 </head>
@@ -106,9 +131,16 @@
     
     <button onclick="calculateConsumption()">Calculate Total Consumption</button>
     
-    <div class="result-box">
-        <div style="font-size: 14px; color: #57606a;">Combined Fuel Consumption</div>
-        <div class="result-val"><span id="result">0.00</span> <span style="font-size: 16px;">L/100km</span></div>
+    <div class="results-container">
+        <div class="result-box">
+            <div class="result-title">Standard Method<br>(8.9 kWh/L Density)</div>
+            <div class="result-val"><span id="res-standard">0.00</span><br><span>L/100km</span></div>
+        </div>
+        
+        <div class="result-box highlight">
+            <div class="result-title" style="color: #0969da; font-weight: bold;">My Car Profile<br>(3.275 kWh/L Efficiency)</div>
+            <div class="result-val" style="color: #0969da;"><span id="res-car" style="font-weight: bold;">0.00</span><br><span>L/100km</span></div>
+        </div>
     </div>
 </div>
 
@@ -123,10 +155,15 @@
             return;
         }
         
-        // Using your simplified formula: (100 * F + 11.236 * E) / M
-        const totalConsumption = (100 * f + 11.236 * e) / m;
+        // 1. Standard Method Formula (8.9 kWh/L): (100 * F + 11.236 * E) / M
+        const standardConsumption = (100 * f + 11.236 * e) / m;
         
-        document.getElementById('result').innerText = totalConsumption.toFixed(2);
+        // 2. Real-World Car Formula (3.275 kWh/L): (100 * F + 30.534 * E) / M
+        const carConsumption = (100 * f + 30.534 * e) / m;
+        
+        // Display both calculations side-by-side
+        document.getElementById('res-standard').innerText = standardConsumption.toFixed(2);
+        document.getElementById('res-car').innerText = carConsumption.toFixed(2);
     }
 </script>
 
