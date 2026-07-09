@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>PHEV Consumption Calculator</title></head>
+<body>
+  <h2>PHEV Consumption Calculator</h2>
+  Mileage (km): <input id="m" type="number"><br><br>
+  Electricity (kWh): <input id="e" type="number"><br><br>
+  Fuel (L): <input id="f" type="number"><br><br>
+  <button onclick="calc()">Calculate</button>
+  <h3>Result: <span id="res">0</span> L/100km</h3>
+
+  <script>
+    function calc() {
+      let m = document.getElementById('m').value;
+      let e = document.getElementById('e').value;
+      let f = document.getElementById('f').value;
+      document.getElementById('res').innerText = ((100 * f + 11.236 * e) / m).toFixed(2);
+    }
+  </script>
+</body>
+</html>
