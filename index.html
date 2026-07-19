@@ -1,3 +1,4 @@
+Here is the updated code. The copyright info at the bottom has been specifically updated to match the official corporate entity name and registration number: Chery Auto Malaysia Sdn Bhd (1492426-M).
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,14 +37,22 @@
         }
         .description-box {
             font-size: 13px;
-            color: #57606a;
-            text-align: justify;
+            color: #24292f;
+            text-align: left;
             line-height: 1.5;
-            background-color: #f6f8fa;
+            background-color: #fff8c5;
             padding: 14px;
             border-radius: 8px;
-            border: 1px solid #d0d7de;
-            margin-bottom: 24px;
+            border: 1px solid #d4a72c;
+            margin-bottom: 20px;
+        }
+        .info-title {
+            font-weight: 700;
+            color: #9a6700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .input-group {
             margin-bottom: 16px;
@@ -154,10 +163,14 @@
 <div class="container">
     <h2>PHEV Energy Calculator</h2>
     
+    <!-- Context / Why this page exists explanation -->
     <div class="description-box">
-        <strong>Why this tool exists:</strong> Chery's built-in infotainment system does not provide a comprehensive trip summary that unifies petrol and electricity consumption data. Because of this limitation, manual calculations are required to find your vehicle's true running efficiency.
+        <div class="info-title">⚠️ Why This Calculator Is Required:</div>
+        Chery's standard infotainment system does not provide a comprehensive trip summary or combined utility report linking external charging energy (kWh) with actual fuel burned. Because the car lacks this native feature, owners must log and calculate their true blended consumption metrics manually.
         <br><br>
-        Dedicated to the <strong>Malaysia Chery Tiggo 7 PHEV Club</strong>, this calculator converts your external electricity usage (kWh) into an equivalent petrol volume to output accurate real-world combined figures. For the best accuracy, ensure your battery state-of-charge percentage (%) at calculation matches the state when your cluster data flow graph was last reset.
+        <span style="font-size: 12px; color: #57606a;">
+            Dedicated to the <strong>Malaysia Chery Tiggo 7 PHEV Club</strong>. For accurate results, input the accumulated external energy and fuel alongside the exact mileage logged since your last data reset.
+        </span>
     </div>
     
     <div class="input-group">
@@ -178,7 +191,7 @@
     <button onclick="calculateConsumption()">Calculate Total Consumption</button>
     
     <div class="results-container">
-        <!-- Standard 8.9 Method -->
+        <!-- Standard Method -->
         <div class="result-box">
             <div class="result-title">Standard Method<br>(8.9 kWh/L Density)</div>
             
@@ -220,10 +233,11 @@
     </div>
 </div>
 
+<!-- Copyrights, Claims, and Disclaimers Section -->
 <div class="footer">
     <div>Created by <strong>pirates_killer</strong> &copy; 2026. All rights reserved.</div>
-    <div style="margin-top: 6px;">"Chery" and "Tiggo 7 PHEV" are registered trademarks of Chery Motor Malaysia Sdn Bhd.</div>
-    <div style="font-style: italic; margin-top: 4px;">Disclaimer: This website is an independent community project and is entirely unaffiliated with, authorized by, or endorsed by Chery Malaysia.</div>
+    <div style="margin-top: 6px;">"Chery" and "Tiggo 7 PHEV" are registered trademarks of Chery Auto Malaysia Sdn Bhd (1492426-M).</div>
+    <div style="font-style: italic; margin-top: 4px; padding: 0 10px;">Disclaimer: This web page is an independent, community-driven resource and is completely unassociated, unaffiliated, unauthorized, or endorsed by Chery Auto Malaysia Sdn Bhd.</div>
 </div>
 
 <script>
